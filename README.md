@@ -26,7 +26,7 @@ We tested our baselines on the following environment:
 ## Preparing the Dataset
 1. Download the dataset from Google Drive <a href="https://drive.google.com/drive/folders/1Mde8sfxKl8L0OwG4UVQR7IE5Tg-bSosR"> here </a> 
 
-2. Unzip folders `Data` and `Labels and metadata`. 
+2. Unzip folders `Data` and `Labels_and_metadata`. 
 * `Data` has all the snapshots in MVDoppler with structure of 
 ```
 dataset
@@ -37,10 +37,10 @@ dataset
 
 All snapshots are in hdf5 formats, and named as `<class>_<ID>.h5`.
 
-* `Labels and metadata` 
+* `Labels_and_metadata` 
 The dataset should be arranged in the following structure:
 ```
-Labels and metadata
+Labels_and_metadata
   ├── design_table.csv
   ├── meta_data.json
   ├── test.txt
@@ -52,7 +52,7 @@ Labels and metadata
 
 `train.txt`, `val.txt`, and `test.txt` have the snapshot `fname`s in the train set, validation set, and test set for fold 0, respectively.
 
-Labels in `design_table.csv`: # TODO: needs check
+Labels in `design_table.csv`:
 ```
 - ID: snapshot ID unique per class 
 - exp_fname: source episode name (to be used for cross-episode validation)
