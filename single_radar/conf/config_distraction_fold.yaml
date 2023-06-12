@@ -1,0 +1,55 @@
+project: Distraction2_MVDoppler
+
+train: 
+  learning_rate: 1e-4
+  epoch: 2
+  batch_size: 64
+  num_workers: 8
+  num_classes: 2
+  shuffle: True
+  # model: MyMobileNet, MyResNet34, MyEfficientNet
+  model: MyMobileNet
+  # For early stopping
+  early_stop: True
+  delta: 0.01  
+  patience: 10
+
+
+transforms:
+  # mean and std for normalization
+  radar_mean: 2.90
+  radar_std: 2.22
+
+  # window size and doppler resolution
+  win_size: 128
+  time_win_start: 0
+  resize_doppler: 128
+
+  # For labels
+  label_type: 'pattern'
+  ymap_pattern: {'pockets':0, 'texting':1}
+  
+  # Use two radar data 
+  select_radar_idx: [0, 1]  # list of radar_idx
+  
+    
+result:
+  name: ${project}-Testfold-${result.test_fold}
+  file_list: ''   # gloabl directory for ./design_table.csv (e.g., '/data/MVdoppler/design_table.csv')
+  data_dir: ''  # global directory for downloaded snapshot datasets (e.g., '/data/MVdoppler/dataset/')    
+  # directory to save the results
+  path_des: ''  # global directory for saving the results (e.g., '/data/MVdoppler/results/')
+
+  distraction: True
+   # Select which fold to be the test set
+  select_fold: True
+  test_fold: 0
+
+  # Whether to return the des in dataset for saving des
+  return_des_train: False
+  return_des_valid: True
+  return_des_test: True
+
+  # Confusion matrix labels
+  labels: ['pockets', 'texting']
+  
