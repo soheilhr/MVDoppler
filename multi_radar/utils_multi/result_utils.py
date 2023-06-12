@@ -105,7 +105,7 @@ def save_result(set, set_name, device, model, args):
         y_pred_ls, 
         des_ls, 
         labels=args.result.labels, 
-        name=args.wandb.project+'_'+args.result.name+set_name,
+        name=args.result.name+set_name,
         path_des=args.result.path_des
         )
 

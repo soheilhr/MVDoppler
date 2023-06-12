@@ -3,6 +3,8 @@ defaults:
   - fusion: late_average
   - _self_
 
+project: Hand2_MVDoppler_Multi
+
 train:
   # Training Params.
   learning_rate: 1e-4
@@ -35,6 +37,7 @@ transforms:
     
 
 result:
+  name: ${project}-Testfold-${result.test_fold}
   data_dir: ''  # global directory for downloaded snapshot datasets (e.g., '/data/MVdoppler/dataset/')    
   file_list: ''   # gloabl directory for ./design_table.csv (e.g., '/data/MVdoppler/design_table.csv')
   # save directory
