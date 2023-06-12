@@ -31,14 +31,14 @@ class RadarDataset(Dataset):
     The input-output pairs (radar_dat, label) of the RadarDataset are of the following form:
     radar_dat: radar data with shape (micro-Doppler range, time range, 3). The last dimension is three-channels 
                 for RGB image. The one-channel data is repeated three times to generate three channels.
-    label: depends on the argument `label_type` and label mapping
+    label: depends on the argument `label_type` and label transforms
 
     Args:
         file_list (string): path of the file containing labels and information
         data_dir: path of all radar data
         transform: transform function on `radar_dat` contained in `transform_utils.py`
         target_transform: transform function on `label` contained in `transform_utils.py` 
-        label_type: labels (examples include 'pattern')
+        label_type: labels , such as 'pattern'
         return_des: if True, returns information of the radar data in addition to the input-output pair
         
     """
