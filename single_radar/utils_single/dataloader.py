@@ -17,7 +17,6 @@ def LoadDataset(args):
 
         if args.result.distraction: 
             df = df.loc[(df['pattern']=='pockets') | (df['pattern']=='texting')]
-
         
         file_list_train = df.loc[ (df['fold'] != args.result.test_fold) & (~df['val_set'])]
         file_list_train = list(file_list_train['fname'])
@@ -57,7 +56,6 @@ def LoadDataset(args):
         composed = transforms.Compose([
             ToCHWTensor(),
             randomize_start,
-            # CropDoppler(args.transforms.doppler_size),
             SelectChannel(radar_idx),
             transforms.Normalize(mean=[mean, mean, mean], std=[std, std, std]),
             resize,
@@ -77,7 +75,6 @@ def LoadDataset(args):
         composed_val = transforms.Compose([
             ToCHWTensor(),
             CenterStart(args.transforms.win_size),
-            # CropDoppler(args.transforms.doppler_size),
             SelectChannel(radar_idx),
             transforms.Normalize(mean=[mean, mean, mean], std=[std, std, std]),
             resize,
@@ -95,7 +92,6 @@ def LoadDataset(args):
         composed_test = transforms.Compose([
             ToCHWTensor(),
             randomize_start,
-            # CropDoppler(args.transforms.doppler_size),
             SelectChannel(radar_idx),
             transforms.Normalize(mean=[mean, mean, mean], std=[std, std, std]),
         ])

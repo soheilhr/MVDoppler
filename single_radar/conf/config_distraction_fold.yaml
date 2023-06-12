@@ -41,7 +41,7 @@ result:
   path_des: ''  # global directory for saving the results (e.g., '/data/MVdoppler/results/')
 
   distraction: True
-   # Select which fold to be the test set
+  # Select which fold to be the test set
   select_fold: True
   test_fold: 0
 

@@ -52,7 +52,7 @@ class Trainer:
             print('test acc ', test_acc, 'test_loss ', test_loss) 
 
            
-            # using valid loss
+            # Early stopping using valid loss
             if self.args.train.early_stop:
                 if self.min_val_loss is None:
                     self.min_val_loss = valid_loss

@@ -12,7 +12,6 @@ import hydra
 from omegaconf.dictconfig import DictConfig
 
 
-
 @hydra.main(config_path="conf", config_name="config_distraction_fold")
 def main(args: DictConfig) -> None:
     data_train, data_valid, data_test = LoadDataset(args)
