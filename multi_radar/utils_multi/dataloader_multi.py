@@ -1,6 +1,6 @@
 from torch.utils.data import DataLoader
-from mmWave_Process.utils.transform_utils import *
-from mmWave_Process.utils.dataset import RadarDataset
+from utils.transform_utils import *
+from utils.dataset import RadarDataset
 from torchvision import transforms
 import pandas as pd
 

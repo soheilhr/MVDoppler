@@ -2,11 +2,11 @@ import os
 import sys
 import torch
 
-sys.path.append(os.path.abspath('/workspace/'))
-from mmWave_Process.multi_radar.utils_multi.model import FusionMobileNet
-from mmWave_Process.multi_radar.utils_multi.trainer import Trainer
-from mmWave_Process.multi_radar.utils_multi.result_utils import save_result
-from mmWave_Process.multi_radar.utils_multi.dataloader_multi import LoadDataset_Multi
+sys.path.append(os.path.abspath('/workspace/MVDoppler/'))
+from multi_radar.utils_multi.model import FusionMobileNet
+from multi_radar.utils_multi.trainer import Trainer
+from multi_radar.utils_multi.result_utils import save_result
+from multi_radar.utils_multi.dataloader_multi import LoadDataset_Multi
 
 import hydra
 from omegaconf import OmegaConf
