@@ -35,10 +35,10 @@ transforms:
     
 
 result:
-  data_dir: '/data/users/shuboy/nipsdata/dataset/'
-  file_list: '/data/users/shuboy/nipsdata/Labels_and_metadata/design_table.csv'
+  data_dir: ''  # global directory for downloaded snapshot datasets (e.g., '/data/MVdoppler/dataset/'')    
+  file_list: ''   # gloabl directory for ./design_table.csv (e.g., '/data/MVdoppler/design_table.csv')
   # save directory
-  path_des: '/data/users/jaeho/mmWave_Process/result_output/save/${wandb.project}/'
+  path_des: ''  # global directory for saving the results (e.g., /data/MVdoppler/results/)
   distraction: False
   # select fold for test set
   select_fold: True
