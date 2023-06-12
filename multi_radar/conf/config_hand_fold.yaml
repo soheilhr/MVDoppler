@@ -1,0 +1,50 @@
+defaults:
+  # fusion: input, late_average, late_transformer, multi_average, multi_transformer
+  - fusion: late_average
+  - _self_
+
+train:
+  # Training Params.
+  learning_rate: 1e-4
+  epoch: 50
+  batch_size: 32
+  num_workers: 2
+  num_classes: 2
+  use_pretrain: True
+  # Params. for Early Stopping
+  early_stop: False
+  delta: 0.01
+  patience: 10
+  shuffle: True
+  # Backbone Model
+  model: 'mobilenet'
+
+transforms:
+  # mean and std for normalization
+  radar_mean: 2.90
+  radar_std: 2.22
+  # window size
+  win_size: 128
+  time_win_start: 0
+  # for labels
+  label_type: 'pattern'
+  ymap_pattern: {'normal':0, 'phone_call':0, 'pockets':1, 'texting':1}
+  # Use two radar data
+  select_radar_idx: [0, 1]  # list of radar_idx
+  sync_idx: 4 # sync params.
+    
+
+result:
+  data_dir: '/data/users/shuboy/nipsdata/dataset/'
+  file_list: '/data/users/shuboy/nipsdata/Labels_and_metadata/design_table.csv'
+  # save directory
+  path_des: '/data/users/jaeho/mmWave_Process/result_output/save/${wandb.project}/'
+  distraction: False
+  # select fold for test set
+  select_fold: True
+  test_fold: 0
+  # Whether to return the des in dataset for saving des
+  return_des_train: False
+  return_des_valid: True
+  return_des_test: True
+  labels: ['Hand', 'No-hand']
