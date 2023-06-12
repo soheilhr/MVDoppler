@@ -30,13 +30,12 @@ We tested our baselines on the following environment:
 * `Data` has all the snapshots in MVDoppler with structure of 
 ```
 dataset
-  ├── des.csv
   ├── normal_00000.h5
   ├── normal_00001.h5
   ...
 ```
 
-All snapshots are in hdf5 formats, and named as `<class>_<number>.h5`. `des.csv` contains the information for all snapshots, such as `fname` and `length`, which is explained in supplementary material in the paper.  TODO.
+All snapshots are in hdf5 formats, and named as `<class>_<ID>.h5`.
 
 * `Labels and metadata` 
 The dataset should be arranged in the following structure:
@@ -49,44 +48,42 @@ Labels and metadata
   ├── val.txt
 ```
 
-For ease of usage, `design_table.csv` has the information for snapshots and training folds. 
+`design_table.csv` includes the metadata for the entire dataset (train, val and test) in camma seperated values (CSV) format.
 
-`train.txt`, `val.txt`, and `test.txt` have the snapshots `fname` in the train set, validation set, and test set for fold 0, respectively.
+`train.txt`, `val.txt`, and `test.txt` have the snapshot `fname`s in the train set, validation set, and test set for fold 0, respectively.
 
 Labels in `design_table.csv`: # TODO: needs check
 ```
-- ID
-- exp_fname: 10s-episode name ?(20220610130012.npz)
-- fname: snapshot name
+- ID: snapshot ID unique per class 
+- exp_fname: source episode name (to be used for cross-episode validation)
+- fname: full snapshot name
 - pattern: class name
-- subject: subject index
-- notes: not used #TODO
+- subject: subject index (between 0 and 12)
+- notes: not used 
 - sex: subject sex
 - age: subject age
 - height: subject height (cm)
-- signal_mean: snapshot magnitude mean value
-- signal_sd: snapshot magnitude standard deviation
-- snapshot_idx: snapshot index in the episode
-- x: x-axis in Region of Interest (RoI), a number within [5,15] 
-- y: x-axis in Region of Interest (RoI), a number within [5,15]
+- signal_mean: snapshot signal intensity magnitud mean value
+- signal_sd: snapshot signal intensity standard deviation
+- snapshot_idx: snapshot index within the corresponding episode
+- x: Location across x-axis in Region of Interest (cross-range direction of Radar0), expected to be between [-5,5] meters 
+- y: Location across y-axis in Region of Interest (range direction of Radar0), expected to be between [5,15] meters
 - noise_db: noise power (dB)
-- frame: ? (21.5)
-- t: ?
-- rx: ?
-- ry: ?
+- frame: snapshot median frame index (used to locate a snapshot within its corresponding episode)
+- t: snapshot median time relative to the corresponding episode in seconds
+- r0: range as measured by radar0
+- r1: range as measured by radar1
 - vx: velocity on x-axis
 - vy: velocity on y-axis
-- snr_db_x: signal-to-noise ratio (SNR) on x-axis (dB) ?
-- snr_db_y: ?
-- san_check_corrupt: if FALSE, the snapshot is not corrupted
-- episode_idx: episode index in one experiment?
+- snr_db_0: signal-to-noise ratio (SNR) observed by radar0 (dB)
+- snr_db_1: signal-to_noise ratio (SNR) observed by radar1 (dB)
+- episode_idx: episode index within each class
 - fold: fold number (4 folds in total)
-- val_set: if TRUE, is in validation set
+- val_set: if TRUE, snapshot is used for validation instead of training
 ```
 
-Labels in `meta_data.json` detail can be found in supplementary material in the paper <a href="https://arxiv.org/"> Paper [arxiv] </a>
+`meta_data.json` provides details of radar waveforms and processing paramters. More information can be found in supplementary material in the paper <a href="https://arxiv.org/"> Paper [arxiv] </a>
 TODO: do we need to specify? Or can mention in the paper?
-
 
 ## Environment Setup
 1. Clone this repoitory
