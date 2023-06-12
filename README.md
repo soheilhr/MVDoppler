@@ -111,7 +111,7 @@ pip install -r requirements.txt
 
 
 2. Run single-radar hand movement classification example.   
-  Make sure you mount to the repository directory in python files: `line 12 sys.path.append()`
+  Make sure you mount to the repository directory in python files: `line 5 sys.path.append()`
 ```
 cd single_radar
 python run_hand.py

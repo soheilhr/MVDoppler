@@ -1,5 +1,5 @@
 """
-Datasets for gaits, identity, location, and velocities
+MVDoppler Datasets 
 """
 
 import torch
@@ -15,7 +15,7 @@ def read_h5_basic(path):
         path (string): a path of a HDF5 file
 
     Returns:
-        radar_dat: micro-Doppler data with shape (256, 128, 2) as (1, time, micro-Doppler, 2 radar channel)
+        radar_dat: micro-Doppler data with shape (1, time, micro-Doppler, 2 radar channel)
         des: information for radar data
     """
     hf = h5py.File(path, 'r')
@@ -26,19 +26,19 @@ def read_h5_basic(path):
 
 class RadarDataset(Dataset):
     """
-    Dataset of different classifications
+    MVDoppler dataset of different classifications
 
     The input-output pairs (radar_dat, label) of the RadarDataset are of the following form:
     radar_dat: radar data with shape (micro-Doppler range, time range, 3). The last dimension is three-channels 
                 for RGB image. The one-channel data is repeated three times to generate three channels.
-    label: depends on the argument `label_type`
+    label: depends on the argument `label_type` and label mapping
 
     Args:
         file_list (string): path of the file containing labels and information
         data_dir: path of all radar data
         transform: transform function on `radar_dat` contained in `transform_utils.py`
         target_transform: transform function on `label` contained in `transform_utils.py` 
-        label_type: wanted label type. Look function `get_label()` for detail.       
+        label_type: labels (examples include 'pattern')
         return_des: if True, returns information of the radar data in addition to the input-output pair
         
     """
