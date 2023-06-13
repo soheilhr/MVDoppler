@@ -27,17 +27,6 @@ def LoadDataset(args):
         file_list_test = df.loc[ (df['fold'] == args.result.test_fold)]
         file_list_test = list(file_list_test['fname'])
 
-
-    ### For text/csv files that only have the fname
-    else:    
-        df = pd.read_csv(args.result.csv_file_train)
-        file_list_train = list(df[df.columns[0]])
-        df = pd.read_csv(args.result.csv_file_test)
-        file_list_test = list(df[df.columns[0]])
-        df = pd.read_csv(args.result.csv_file_valid)
-        file_list_valid = list(df[df.columns[0]])
-        
-
     randomize_start = RandomizeStart(args.transforms.win_size, args.transforms.time_win_start)
     labelmap = LabelMap(label_type=args.transforms.label_type, ymap=args.transforms.ymap_pattern)
     resize = transforms.Resize((args.transforms.resize_doppler, args.transforms.win_size))
