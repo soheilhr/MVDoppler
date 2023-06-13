@@ -116,8 +116,11 @@ pip install -r requirements.txt
 cd single_radar
 python run_hand.py
 ```
-
-
+3. Training for multi-radar is almost same with the progress in single-radar. First, set up the configuration files in folder `multi_radar/conf/`. Then run the main code according to each task. For example, multi-radar-based hand classification can be done thorugh
+```
+cd multi_radar
+python run_multi_hand.py
+```
 ## Argument configurations
 
 This codebase uses [Hydra](https://github.com/facebookresearch/hydra) to manage
