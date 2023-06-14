@@ -109,4 +109,4 @@ def save_result(set, set_name, device, model, args):
         path_des=args.result.path_des
         )
 
-    torch.save(model.state_dict(), args.result.path_des+'model/model_' + args.wandb.project + '_' + args.result.name+set_name + '.pt')
+    torch.save(model.state_dict(), args.result.path_des+'model/model_' + args.project + '_' + args.result.name+set_name + '.pt')
