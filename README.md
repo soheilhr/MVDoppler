@@ -4,12 +4,12 @@ MVDoppler is a new large multi-view Doppler dataset together with baseline perce
 ![image](./figures/classes.svg)
 
 URLs of MVDoppler:
-* <a href="https://arxiv.org/"> Paper and appendix [arxiv] #TODO </a>
+* <a href="https://arxiv.org/"> Paper and appendix  </a>
 * <a href="https://mvdoppler.github.io/"> MVDoppler project page </a>
 * <a href="https://drive.google.com/drive/folders/1Mde8sfxKl8L0OwG4UVQR7IE5Tg-bSosR"> MVDoppler data </a>
 
 
-## MVDoppler Dataset
+## MVDoppler dataset
 This is the repository for MVDoppler containing the code for:
 * PyTorch MVDoppler dataset and data loader
 * Single-radar and multi-radar baseline codes for micro-motion-based gait analysis and classification, i.e., two tasks hand detection and distraction detection
@@ -23,7 +23,7 @@ We tested our baselines on the following environment:
 [2023-06-14] We released MVDoppler version 1.
 
 
-## Preparing the Dataset
+## Preparing the dataset
 1. Download the dataset from Google Drive <a href="https://drive.google.com/drive/folders/1Mde8sfxKl8L0OwG4UVQR7IE5Tg-bSosR"> here </a> 
 
 2. Unzip folders `Data` and `Labels_and_metadata`. 
@@ -43,14 +43,9 @@ The dataset should be arranged in the following structure:
 Labels_and_metadata
   ├── design_table.csv
   ├── meta_data.json
-  ├── test.txt
-  ├── train.txt
-  ├── val.txt
 ```
 
 `design_table.csv` includes the metadata for the entire dataset (train, val and test) in camma seperated values (CSV) format.
-
-`train.txt`, `val.txt`, and `test.txt` have the snapshot `fname`s in the train set, validation set, and test set for fold 0, respectively.
 
 Labels in `design_table.csv`:
 ```
@@ -63,7 +58,7 @@ Labels in `design_table.csv`:
 - sex: subject sex
 - age: subject age
 - height: subject height (cm)
-- signal_mean: snapshot signal intensity magnitud mean value
+- signal_mean: snapshot signal intensity magnitude mean value
 - signal_sd: snapshot signal intensity standard deviation
 - snapshot_idx: snapshot index within the corresponding episode
 - x: Location across x-axis in Region of Interest (cross-range direction of Radar0), expected to be between [-5,5] meters 
@@ -82,10 +77,9 @@ Labels in `design_table.csv`:
 - val_set: if TRUE, snapshot is used for validation instead of training
 ```
 
-`meta_data.json` provides details of radar waveforms and processing paramters. More information can be found in supplementary material in the paper <a href="https://arxiv.org/"> Paper [arxiv] </a>
-TODO: do we need to specify? Or can mention in the paper?
+`meta_data.json` provides details of radar waveforms and processing paramters. 
 
-## Environment Setup
+## Environment setup
 1. Clone this repoitory
 
 2. Create a conda environment
@@ -111,26 +105,25 @@ pip install -r requirements.txt
 
 
 2. Run single-radar hand movement classification example.   
-  Make sure you mount to the repository directory in python files: `line 5 sys.path.append()`
+  Make sure you mount to the repository directory in python file `run_hand.py`: `line 5 sys.path.append()`
 ```
 cd single_radar
 python run_hand.py
 ```
-3. Training for multi-radar is almost same with the progress in single-radar. First, set up the configuration files in folder `multi_radar/conf/`. Then run the main code according to each task. For example, multi-radar-based hand classification can be done thorugh
+3. Training for multi-radar is almost same with the progress in single-radar. First, set up the configuration files in folder `multi_radar/conf/`. Then run the main code according to each task. For example, multi-radar-based hand classification can be done through
 ```
 cd multi_radar
 python run_multi_hand.py
 ```
 ## Argument configurations
 
-This codebase uses [Hydra](https://github.com/facebookresearch/hydra) to manage
-and configure arguments. Hydra offers more flexibility for running and managing complex configurations, and supports rich hierarchical config structure.
+This codebase uses [Hydra](https://github.com/facebookresearch/hydra) to manage and configure arguments. Hydra offers more flexibility for running and managing complex configurations, and supports rich hierarchical config structures.
 
 The YAML configuration files are in folder `conf`. So you can have a set of arguments in your YAML file like
 
 ```YAML
 train: 
-  learning_rate: 3e-5
+  learning_rate: 1e-4
 
 transforms:
   win_size: 128

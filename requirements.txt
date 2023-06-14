@@ -1,0 +1,12 @@
+torch
+torchvision
+torchsummary
+numpy
+tqdm
+pandas
+h5py
+matplotlib
+scikit-learn
+hydra-core
+omegaconf
+einops
