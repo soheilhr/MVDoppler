@@ -134,8 +134,11 @@ You can also use `args.train.learning_rate` to refer to the relevant arguments i
 ## Citation
 BibTex Reference:
 ```
-@inproceedings{
-
+@inproceedings{hor2023mvdoppler,
+  title={MVDoppler: Unleashing the Power of Multi-View Doppler for MicroMotion-based Gait Classification},
+  author={Hor, Soheil and Yang, Shubo and Choi, Jae-Ho and Arbabian, Amin},
+  booktitle={Thirty-seventh Conference on Neural Information Processing Systems Datasets and Benchmarks Track},
+  year={2023}
 }
 ```
 
