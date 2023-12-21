@@ -4,7 +4,7 @@ MVDoppler is a new large multi-view Doppler dataset together with baseline perce
 ![image](./figures/classes.svg)
 
 URLs of MVDoppler:
-* <a href="[[https://arxiv.org/](https://openreview.net/pdf?id=1plAfmP5ms)](https://openreview.net/pdf?id=1plAfmP5ms)"> Paper and appendix  </a>
+* <a href="https://openreview.net/pdf?id=1plAfmP5ms"> Paper and appendix  </a>
 * <a href="https://mvdoppler.github.io/"> MVDoppler project page </a>
 * <a href="https://drive.google.com/drive/folders/1Mde8sfxKl8L0OwG4UVQR7IE5Tg-bSosR"> MVDoppler data </a>
 
