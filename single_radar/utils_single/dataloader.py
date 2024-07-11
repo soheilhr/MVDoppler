@@ -80,7 +80,7 @@ def LoadDataset(args):
         
         composed_test = transforms.Compose([
             ToCHWTensor(),
-            randomize_start,
+            CenterStart(args.transforms.win_size),
             SelectChannel(radar_idx),
             transforms.Normalize(mean=[mean, mean, mean], std=[std, std, std]),
         ])

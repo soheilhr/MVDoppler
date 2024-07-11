@@ -102,6 +102,7 @@ pip install -r requirements.txt
 * Change `result.file_list` to the directory of the `design_table.csv`
 * Change `result.data_dir` to the directory of the dataset
 * Change `result.path_des` to the directory that you want to store the test results (models, des information, and test confusion matrices)
+* You can change the testing fold in `result.test_fold`
 
 
 2. Run single-radar hand movement classification example.   
@@ -110,6 +111,7 @@ pip install -r requirements.txt
 cd single_radar
 python run_hand.py
 ```
+
 3. Training for multi-radar is almost same with the progress in single-radar. First, set up the configuration files in folder `multi_radar/conf/`. Then run the main code according to each task. For example, multi-radar-based hand classification can be done through
 ```
 cd multi_radar
